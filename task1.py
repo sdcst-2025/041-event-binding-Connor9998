@@ -1,8 +1,10 @@
 import tkinter as tk
 from tkinter import PhotoImage
-import mp3play
+import playsound as p
 
-f = mp3play.load('audioss.mp3'); play = lambda: f.play()
+def playsound(event):
+    print(event)
+    p.playsound("audioss.mp3")
 
 
 window = tk.Tk()
@@ -11,8 +13,22 @@ window.geometry("500x500")
 
 golds = PhotoImage(file="image.png")
 
-button2 = tk.Button(window, image=golds, root, text = 'Play', command = play )
+b2 = tk.Button(window, image=golds, text='Play', command= playsound)
+b1 =  tk.Button(window,text="Click to play")
+b1.bind("<Button>",playsound)
 
-button2.place(x=30, y=150)
 
+b2.place(x=30, y=150)
+b1.place(x=70,y=120)
+
+b2.pack()
+b1.pack()
 window.mainloop()
+
+
+
+"""
+f = playsound.playsound('audioss.mp3')
+"""
+
+
