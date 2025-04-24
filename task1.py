@@ -8,8 +8,9 @@ def playysound():
     except Exception as e:
         print(f"Error playing sound: {e}")
 
-def imusic():
+def imusic(event):
     playsound.playsound("music.mp3")
+    print(event)
     
     
 
@@ -22,7 +23,7 @@ def playsoundwithevent(event):
 
 window = tk.Tk()
 window.title("Sizzurp")
-window.geometry("820x210")
+window.geometry("825x210")
 
 try:
     golds = PhotoImage(file="image111.png")
@@ -35,15 +36,15 @@ except Exception as e:
 
 
 
-b2 = tk.Button(window, image=golds, text='Play', command=playysound)
+b2 = tk.Button(window, image=golds, text='Play')
 cla= PhotoImage(file="imagez1111.png")
-b1 = tk.Button(window, image=cla, command= playysound)
+b1 = tk.Button(window, image=cla)
 b1.bind("<Button>", playsoundwithevent)
 kg= PhotoImage(file="gold11.png")
-b3 = tk.Button(window, image= kg, command= imusic )
+b3 = tk.Button(window, image= kg)
 b3.bind("<Button>", imusic)
 Slime= PhotoImage(file="imagell11102.png")
-b4= tk.Button(window, image= Slime, command= imusic )
+b4= tk.Button(window, image= Slime)
 
 b2.grid(row=0, column=1)
 b1.grid(row=0, column=0)
